@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import { sharedStyles as styles } from "./styles/shared";
+import { useState } from "react";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { sharedStyles as styles } from "../../styles/shared";
 
 export default function ForgetPasswordScreen() {
   const [email, setEmail] = useState("");

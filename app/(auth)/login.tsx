@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { supabase } from "../lib/supabase"; // 👈 Import Supabase
-import { sharedStyles as styles } from "./styles/shared";
+import { supabase } from "../../lib/supabase"; // 👈 Import Supabase
+import { sharedStyles as styles } from "../../styles/shared";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/login.png")}
+        source={require("../../assets/images/login.png")}
         style={styles.image}
       />
 

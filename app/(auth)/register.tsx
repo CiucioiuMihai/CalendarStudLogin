@@ -1,8 +1,8 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { supabase } from "../lib/supabase"; // 👈 Import Supabase
-import { sharedStyles as styles } from "./styles/shared";
+import { supabase } from "../../lib/supabase"; // 👈 Import Supabase
+import { sharedStyles as styles } from "../../styles/shared";
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState("");
