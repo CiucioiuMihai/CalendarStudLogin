@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
+import { useState } from "react";
+import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { supabase } from "../lib/supabase"; // 👈 Import Supabase
 import { sharedStyles as styles } from "./styles/shared";
 
 export default function RegisterScreen() {
@@ -8,9 +9,18 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleRegister = () => {
-    console.log("Registering:", email);
-    router.replace("/home");
+  const handleRegister = async () => {
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      Alert.alert("Registration failed", error.message);
+    } else {
+      Alert.alert("Success", "Check your email to confirm your account.");
+      router.replace("/login");
+    }
   };
 
   return (
@@ -22,6 +32,8 @@ export default function RegisterScreen() {
         value={email}
         onChangeText={setEmail}
         style={styles.input}
+        keyboardType="email-address"
+        autoCapitalize="none"
       />
       <TextInput
         placeholder="Enter your password"
