@@ -6,7 +6,7 @@ export default function AuthLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        gestureEnabled: false,
+        gestureEnabled: false
       }}
     >
       <Stack.Screen name="index" />
